@@ -20,8 +20,63 @@ int main()
 		for (int j = 1; j <= 10; j++)
 		{
 			gridView[i][j] = 10;
+			if (rand() % 5 == 0)
+			{
+				gridLogic[i][j] = 9;
+			}
+			else
+			{
+				gridLogic[i][j] = 0;
+			}
 		}
 	}
+	//Підрахунок мін навколо кожної клітинки
+	for (int i = 1; i <= 10; i++)
+	{
+		for (int j = 1; j <= 10; j++)
+		{
+			int n = 0;
+			if (gridLogic[i][j] == 9)
+			{
+				continue;
+			}
+			if (gridLogic[i+1][j] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i][j+1] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i - 1][j] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i][j-1] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i + 1][j+1] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i-1][j - 1] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i - 1][j + 1] == 9)
+			{
+				n++;
+			}
+			if (gridLogic[i + 1][j - 1] == 9)
+			{
+				n++;
+			}
+			gridLogic[i][j] = n;
+		}
+	}
+	
+	
 	while (app.isOpen())
 	{
 		Event e;
@@ -37,6 +92,7 @@ int main()
 		{
 			for (int j = 1; j <= 10; j++)
 			{
+				gridView[i][j] = gridLogic[i][j];
 				s.setTextureRect(IntRect(gridView[i][j] * width, 0, width, width));//Вирізаємо із спрайта потрібний нам квадратик текстури
 				s.setPosition(i * width, j * width);//встановлюємо на задану позицію
 				app.draw(s);//вимальовуємо на екрані
