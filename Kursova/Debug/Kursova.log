@@ -1,0 +1,4 @@
+﻿  Source.cpp
+e:\сапер\minesweeper\kursova\source.cpp(9): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+e:\сапер\minesweeper\kursova\source.cpp(112): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Kursova.vcxproj -> E:\сапер\Minesweeper\Kursova\Debug\Kursova.exe
